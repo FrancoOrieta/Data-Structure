@@ -127,4 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-.python_ed_fcad_uner
+
+#python ed fcad uner
+.ejercicio_1\python_ed_fcad_uner
