@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+__pycache__/*
 *.py[cod]
 *$py.class
 
@@ -130,4 +130,5 @@ dmypy.json
 
 #python ed fcad uner
 .ejercicio_1/python_ed_fcad_uner
+Trabajo_Practico_4/ejercicio_1/__pycache__/linked_binary_tree_ext.cpython-310.pyc
 Trabajo_Practico_4/ejercicio_1/__pycache__/linked_binary_tree_ext.cpython-310.pyc
