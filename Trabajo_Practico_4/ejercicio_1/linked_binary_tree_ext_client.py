@@ -31,7 +31,7 @@ print("Arbol".center(36, "*"))
 print(arbol,"\n")
 
 print("Hermanos".center(36, "*"))
-print(arbol.hermanos(nodo_g,nodo_k))
+print(arbol.hermanos(nodo_g,nodo_k),"\n")
 
 print("Hojas del arbol".center(36, "*"))
 lista_hojas = arbol.hojas()
@@ -44,5 +44,6 @@ lista_internos = arbol.internos()
 for interno in lista_internos:
     print(interno)
 
+print("")
 print("Profundidad".center(36, "*"))
-print(arbol.profundidad(nodo_a))
+print(arbol.profundidad(nodo_c),"\n")

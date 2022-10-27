@@ -20,19 +20,13 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract, LinkedBinaryTree):
             if actual.left_child:
                 cola.enqueue(actual.left_child)
 
-                if actual.left_child == nodo1:
+                if actual.left_child == nodo1 or actual.left_child == nodo2:
                     padre1 = actual
-
-                if actual.left_child == nodo2:
-                    padre2 = actual  
 
                 if actual.right_child:
                     cola.enqueue(actual.right_child)     
 
-                    if actual.right_child == nodo1:
-                        padre1 = actual
-
-                    if actual.right_child == nodo2:
+                    if actual.right_child == nodo1 or actual.right_child == nodo2:
                         padre2 = actual
 
             cola.dequeue()
@@ -93,21 +87,25 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract, LinkedBinaryTree):
         cola = LinkedQueue()
         cola.enqueue(self._root)
 
-        profundidad = 0
+        if nodo == self._root:
+            return 0
+
+        profundidad = 1
         while not cola.is_empty():
             actual = cola.first()
 
-            if actual == nodo:
+            if not actual.left_child:
+                profundidad = 1
+
+            if actual.left_child == nodo or actual.right_child == nodo:
                 return profundidad
-
             else:
-                if actual.left_child:
-                    cola.enqueue(actual.left_child)
+                cola.enqueue(actual.left_child)
+                cola.enqueue(actual.right_child)
+            cola.dequeue()
 
-                    if actual.right_child:
-                        cola.enqueue(actual.right_child)
+            profundidad += 1
 
-                cola.dequeue()
                     
     def altura(self, nodo: BinaryTreeNode) -> int:
-        return super().altura(nodo)
+        pass
