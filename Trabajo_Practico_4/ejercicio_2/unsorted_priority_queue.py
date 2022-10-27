@@ -1,5 +1,5 @@
 from unsorted_priority_queue_abstract import UnsortedPriorityQueueAbstract
-from typing import Any
+from typing import Any, Tuple
 
 class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
     
@@ -21,7 +21,7 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
             return "UnsortedPriorityQueue()"
 
         res = ""
-        for i in range(0,self._element.__len__()):
+        for i in range(0,len(self._element)):
             res += str(self._element[i]) + ","
 
         res = res[:-1]
@@ -30,3 +30,17 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
     
     def __len__(self) -> int:
         return self._size
+
+    def min(self) -> Tuple[Any]:
+
+        if self.is_empty():
+            raise Exception("Operación no permitida si la estructura está vacía.")
+
+        min_elemento = self._element[0]
+
+        for i in range(0,len(self._element)):
+
+            if min_elemento[0] > self._element[i][0]:
+                min_elemento = self._element[i]
+        
+        return min_elemento

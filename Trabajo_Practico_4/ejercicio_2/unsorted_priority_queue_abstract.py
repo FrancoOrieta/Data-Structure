@@ -28,16 +28,16 @@ class UnsortedPriorityQueueAbstract(ABC):
         """
     pass
 
-    # @abstractmethod
-    # def min(self) -> Tuple[Any]:
-    #     """ Devuelve una tupla conformada por la clave y valor del ítem con menor valor de
-    #     clave.
-    #     Raises:
-    #     Exception: Arroja excepción si se invoca cuando la estructura está vacía.
-    #     Returns:
-    #     Tuple[Any]: Tupla de dos elementos: Clave y Valor del ítem.
-    #     """
-    # pass
+    @abstractmethod
+    def min(self) -> Tuple[Any]:
+        """ Devuelve una tupla conformada por la clave y valor del ítem con menor valor de
+        clave.
+        Raises:
+        Exception: Arroja excepción si se invoca cuando la estructura está vacía.
+        Returns:
+        Tuple[Any]: Tupla de dos elementos: Clave y Valor del ítem.
+        """
+    pass
 
     # @abstractmethod
     # def remove_min(self) -> Tuple[Any]:
