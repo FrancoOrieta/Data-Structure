@@ -102,10 +102,41 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract, LinkedBinaryTree):
             else:
                 cola.enqueue(actual.left_child)
                 cola.enqueue(actual.right_child)
-            cola.dequeue()
 
             profundidad += 1
+            cola.dequeue()
 
-                    
+          
     def altura(self, nodo: BinaryTreeNode) -> int:
-        pass
+
+        cola_izq = LinkedQueue()
+        cola_izq.enqueue(nodo)
+        altura_izq = 0
+
+        cola_der = LinkedQueue()
+        cola_der.enqueue(nodo)
+        altura_der = 0
+
+        while not cola_izq.is_empty():
+            
+            actual_izq = cola_izq.first()
+            if actual_izq.left_child:
+                cola_izq.enqueue(actual_izq.left_child)
+                altura_izq += 1
+            cola_izq.dequeue()
+            
+        while not cola_der.is_empty():
+            actual_der = cola_der.first()
+            if actual_der.right_child:
+                cola_der.enqueue(actual_der.right_child)
+                altura_der += 1
+            cola_der.dequeue()
+            
+        if altura_der > altura_izq:
+            return altura_der
+
+        elif altura_izq > altura_der:
+            return altura_izq
+
+        else:
+            return altura_izq

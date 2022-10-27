@@ -46,4 +46,7 @@ for interno in lista_internos:
 
 print("")
 print("Profundidad".center(36, "*"))
-print(arbol.profundidad(nodo_c),"\n")
+print(arbol.profundidad(nodo_g),"\n")
+
+print("Altura".center(36, "*"))
+print(arbol.altura(nodo_b))
