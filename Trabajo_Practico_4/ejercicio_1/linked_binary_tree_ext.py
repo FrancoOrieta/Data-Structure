@@ -14,20 +14,16 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract, LinkedBinaryTree):
             actual = cola.first()
 
             if actual.left_child:
-
-                if actual.left_child == nodo1:
-                    padre1 = actual
-                if actual.left_child == nodo2:
-                    padre2 = actual
-
                 cola.enqueue(actual.left_child)
 
                 if actual.right_child:
-                    if actual.right_child == nodo1:
-                        padre1 = actual
-                    if actual.right_child == nodo2:
-                        padre2 = actual
                     cola.enqueue(actual.right_child)
+
+                    if actual.left_child == nodo1 or actual.right_child == nodo1:
+                        padre1 = actual
+
+                    if actual.left_child == nodo2 or actual.right_child == nodo2:
+                        padre2 = actual    
 
             cola.dequeue()
         

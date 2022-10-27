@@ -31,7 +31,7 @@ print("Arbol".center(36, "*"))
 print(arbol,"\n")
 
 print("Hermanos".center(36, "*"))
-print(arbol.hermanos(nodo_d,nodo_k))
+print(arbol.hermanos(nodo_g,nodo_k))
 
 print("Hojas del arbol".center(36, "*"))
 lista_hojas = arbol.hojas()
