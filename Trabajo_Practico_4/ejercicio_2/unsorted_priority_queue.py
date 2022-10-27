@@ -1,0 +1,4 @@
+from unsorted_priority_queue_abstract import UnsortedPriorityQueueAbstract
+
+class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
+    
