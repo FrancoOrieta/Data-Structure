@@ -11,6 +11,10 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract, LinkedBinaryTree):
         cola.enqueue(self._root)
 
         while not cola.is_empty():
+            
+            if nodo1 == self._root or nodo2 == self._root:
+                return False
+
             actual = cola.first()
 
             if actual.left_child:
