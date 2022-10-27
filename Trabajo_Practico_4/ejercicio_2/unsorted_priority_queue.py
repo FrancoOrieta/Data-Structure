@@ -34,7 +34,7 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
     def min(self) -> Tuple[Any]:
 
         if self.is_empty():
-            raise Exception("Operación no permitida si la estructura está vacía.")
+            raise Exception("Operación no soportada, la estructura está vacía.")
 
         min_elemento = self._element[0]
 
@@ -44,3 +44,20 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
                 min_elemento = self._element[i]
         
         return min_elemento
+    
+    def remove_min(self) -> Tuple[Any]:
+        if self.is_empty():
+            raise Exception("Operación no soportada, la estructura está vacía.")
+
+        min_elemento = self._element[0]
+
+        for i in range(0,len(self._element)):
+
+            if min_elemento[0] > self._element[i][0]:
+                min_elemento = self._element[i]
+
+        indice = self._element.index(min_elemento)
+        
+        min_remove = self._element.pop(indice)
+        self._size -= 1
+        return min_remove

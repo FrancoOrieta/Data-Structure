@@ -20,3 +20,7 @@ print("Valor minimo".center(36, "*"))
 print(cola_prioridad.min(),"\n")
 
 print("Remover el minimo".center(36, "*"))
+print("Elemento removido: ",cola_prioridad.remove_min(),"\n")
+
+print("Cola actual".center(36, "*"))
+print(cola_prioridad,"\n")
