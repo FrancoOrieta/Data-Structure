@@ -5,13 +5,17 @@ class PriorityQueueStack(PriorityQueueBase):
 
     KEY = 1 #variable de clase para la key
     
-    def __init__(self) -> None:
-        super().__init__()
-        self._data = []
-
     @classmethod
     def increment_key(cls):
         cls.KEY += 1
+
+    @classmethod
+    def decrement_key(cls):
+        cls.KEY -= 1
+
+    def __init__(self) -> None:
+        super().__init__()
+        self._data = []
 
     def push(self, elem: Any):
         self._key = self.KEY
@@ -39,10 +43,6 @@ class PriorityQueueStack(PriorityQueueBase):
         res = res[:-2]
 
         return f"PriorityQueueStack({res})"
-
-    @classmethod
-    def decrement_key(cls):
-        cls.KEY -= 1
 
     def pop(self):
 
