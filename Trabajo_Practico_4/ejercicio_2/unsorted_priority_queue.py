@@ -1,7 +1,8 @@
 from unsorted_priority_queue_abstract import UnsortedPriorityQueueAbstract
+from python_ed_fcad_uner.data_structures import PriorityQueueBase
 from typing import Any, Tuple
 
-class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
+class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract, PriorityQueueBase):
     
     def __init__(self):
         #Los elementos de la cola están implementados  con una lista
