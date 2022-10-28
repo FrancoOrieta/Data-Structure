@@ -1,9 +1,31 @@
 from typing import Any
-from unsorted_priority_queue import UnsortedPriorityQueue
+from python_ed_fcad_uner.data_structures import PriorityQueueBase
 
-class PriorityQueueStack(UnsortedPriorityQueue):
+class PriorityQueueStack(PriorityQueueBase):
 
     KEY = 1 #variable de clase para la key
+    
+    def __init__(self) -> None:
+        super().__init__()
+        self._data = []
+
+    @classmethod
+    def increment_key(cls):
+        cls.KEY += 1
+
+    def push(self, elem: Any):
+        self._key = self.KEY
+        self._value = elem
+
+        self._data.append((self._key, self._value))
+
+        self.increment_key()
+    
+    def __len__(self):
+        return len(self._data)
+    
+    def is_empty(self):
+        return len(self._data) == 0
 
     def __str__(self) -> str:
 
@@ -11,21 +33,13 @@ class PriorityQueueStack(UnsortedPriorityQueue):
             return "PriorityQueueStack()"
 
         res = ""
-        for elem in self._element[::-1]:
+        for elem in self._data[::-1]:
             res += str(elem[1]) + ", "
 
         res = res[:-2]
 
         return f"PriorityQueueStack({res})"
-    
-    @classmethod
-    def increment_key(cls):
-        cls.KEY += 1
 
-    def push(self, elem: Any):
-        self.add(self.KEY ,elem)
-        self.increment_key()
-    
     @classmethod
     def decrement_key(cls):
         cls.KEY -= 1
@@ -35,8 +49,7 @@ class PriorityQueueStack(UnsortedPriorityQueue):
         if self.is_empty():
             raise Exception("La pila está vacía")
 
-        elem = self._element.pop()
-        self._size -= 1
+        elem = self._data.pop()
         self.decrement_key()
         
         return elem[1]
@@ -46,4 +59,4 @@ class PriorityQueueStack(UnsortedPriorityQueue):
         if self.is_empty():
             raise Exception("No hay tope, pila vacia")
 
-        return self._element[::-1][0][1]
+        return self._data[::-1][0][1]

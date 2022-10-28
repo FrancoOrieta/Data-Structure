@@ -1,5 +1,7 @@
 from priority_queue_stack import PriorityQueueStack
 
+stack = PriorityQueueStack()
+
 def llenado(pila):
     for i in range(1,11):
         pila.push(i)
