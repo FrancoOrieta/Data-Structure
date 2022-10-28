@@ -90,20 +90,21 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract, LinkedBinaryTree):
         if nodo == self._root:
             return 0
 
-        profundidad = 1
+        profundidad = 0
+
         while not cola.is_empty():
             actual = cola.first()
 
             if not actual.left_child:
-                profundidad = 1
+                return profundidad
 
             if actual.left_child == nodo or actual.right_child == nodo:
                 return profundidad
-            else:
+            else:        
+                profundidad += 1
                 cola.enqueue(actual.left_child)
                 cola.enqueue(actual.right_child)
 
-            profundidad += 1
             cola.dequeue()
 
           
