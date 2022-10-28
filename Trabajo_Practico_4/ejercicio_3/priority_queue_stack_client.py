@@ -1,11 +1,17 @@
 from priority_queue_stack import PriorityQueueStack
 
-pilardo = PriorityQueueStack()
+def llenado(pila):
+    for i in range(1,11):
+        pila.push(i)
 
-pilardo.add(1,10)
-pilardo.add(2,23)
-pilardo.add(3,17)
-pilardo.add(4,18)
-pilardo.add(5,19)
+stack = PriorityQueueStack()
 
-# print(len(pilardo))
+print("Llenando la pila".center(36, "*"))
+print("Cargando...\n")
+llenado(stack)
+
+print("Longitud".center(26, "*"))
+print(len(stack),"\n")
+
+print("Pila".center(20, "*"))
+print(stack,"\n")
