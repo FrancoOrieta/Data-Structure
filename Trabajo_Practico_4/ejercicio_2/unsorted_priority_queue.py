@@ -2,16 +2,18 @@ from unsorted_priority_queue_abstract import UnsortedPriorityQueueAbstract
 from python_ed_fcad_uner.data_structures import PriorityQueueBase
 from typing import Any, Tuple
 
-class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract, PriorityQueueBase):
+class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
     
     def __init__(self):
-        #Los elementos de la cola están implementados  con una lista
         self._element = []
         self._size = 0
     
     def add(self, k: Any, v: Any) -> None:
-        #Cada elemento es una tupla, con una clave k y un valor v
-        elemento = (k,v)
+        queue = PriorityQueueBase()
+        queue._Item._key = k
+        queue._Item._value = v
+
+        elemento = (queue._Item._key, queue._Item._value)
         self._element.append(elemento)
         self._size += 1
 
