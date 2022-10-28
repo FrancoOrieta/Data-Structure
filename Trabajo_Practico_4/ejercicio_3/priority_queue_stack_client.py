@@ -16,6 +16,16 @@ print(stack.is_empty(),"\n")
 print("Longitud".center(26, "*"))
 print(len(stack),"\n")
 
-
 print("Pila".center(20, "*"))
 print(stack,"\n")
+
+print("Pop".center(20, "*"))
+print("Elemento quitado: ", stack.pop())
+print("Elemento quitado: ", stack.pop())
+print("Elemento quitado: ", stack.pop(),"\n")
+
+print("Pila despues del pop".center(35, "*"))
+print(stack,"\n")
+
+print("Tope".center(20, "*"))
+print(stack.top())

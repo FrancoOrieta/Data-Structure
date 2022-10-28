@@ -25,3 +25,25 @@ class PriorityQueueStack(UnsortedPriorityQueue):
     def push(self, elem: Any):
         self.add(self.KEY ,elem)
         self.increment_key()
+    
+    @classmethod
+    def decrement_key(cls):
+        cls.KEY -= 1
+
+    def pop(self):
+
+        if self.is_empty():
+            raise Exception("La pila está vacía")
+
+        elem = self._element.pop()
+        self._size -= 1
+        self.decrement_key()
+        
+        return elem[1]
+        
+    def top(self):
+
+        if self.is_empty():
+            raise Exception("No hay tope, pila vacia")
+
+        return self._element[::-1][0][1]
