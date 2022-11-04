@@ -3,7 +3,7 @@ from python_ed_fcad_uner.data_structures import PriorityQueueBase
 
 class PriorityQueueStack(PriorityQueueBase):
 
-    KEY = 1 #variable de clase para la key
+    KEY = 10 #variable de clase para la key
     
     @classmethod
     def increment_key(cls):
@@ -18,12 +18,13 @@ class PriorityQueueStack(PriorityQueueBase):
         self._data = []
 
     def push(self, elem: Any):
+
         self._key = self.KEY
         self._value = elem
 
         self._data.append((self._key, self._value))
 
-        self.increment_key()
+        self.decrement_key()
     
     def __len__(self):
         return len(self._data)
@@ -38,11 +39,11 @@ class PriorityQueueStack(PriorityQueueBase):
 
         res = ""
         for elem in self._data[::-1]:
-            res += str(elem[1]) + ", "
+            res += str(elem[0]) + ", "
 
         res = res[:-2]
 
-        return f"PriorityQueueStack({res})"
+        return f"PriorityQueueStack Keys:({res})"
 
     def pop(self):
 
@@ -50,7 +51,7 @@ class PriorityQueueStack(PriorityQueueBase):
             raise Exception("La pila está vacía")
 
         elem = self._data.pop()
-        self.decrement_key()
+        self.increment_key()
         
         return elem[1]
         
