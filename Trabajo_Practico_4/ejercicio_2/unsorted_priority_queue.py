@@ -10,10 +10,10 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
     
     def add(self, k: Any, v: Any) -> None:
         queue = PriorityQueueBase()
-        queue._Item._key = k
-        queue._Item._value = v
+        queue._key = k
+        queue._value = v
 
-        elemento = (queue._Item._key, queue._Item._value)
+        elemento = (queue._key, queue._value)
         self._element.append(elemento)
         self._size += 1
 
