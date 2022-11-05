@@ -8,17 +8,17 @@ heap.enqueue(3)
 heap.enqueue(4)
 heap.enqueue(5)
 
-print("Heap".center(26, "*"))
-print(heap,"\n")
+print("HeapQueue".center(26, "*"))
+print(heap._data,"\n")
 
 print("Longitud".center(26, "*"))
 print(len(heap),"\n")
 
 print("Primero".center(26, "*"))
-print(heap.first()[1],"\n")
+print(heap.first(),"\n")
 
-print("Sacando primero")
+print("Sacando primero".center(26, "*"))
 print(heap.dequeue(),"\n")
 
-print("Primero".center(26, "*"))
-print(heap.first()[1])
+print("Nuevo Primero".center(26, "*"))
+print(heap.first())
