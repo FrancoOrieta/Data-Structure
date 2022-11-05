@@ -1,30 +1,29 @@
 from typing import Any
 from python_ed_fcad_uner.data_structures import PriorityQueueBase
 
-class PriorityQueueStack(PriorityQueueBase):
-
-    KEY = 10 #variable de clase para la key
+class PriorityQueueStack():
     
-    @classmethod
-    def increment_key(cls):
-        cls.KEY += 1
-
-    @classmethod
-    def decrement_key(cls):
-        cls.KEY -= 1
-
     def __init__(self) -> None:
-        super().__init__()
         self._data = []
+        self._key = 1
 
     def push(self, elem: Any):
+        queue = PriorityQueueBase()
+        queue._key = self._key
+        queue._value = elem
 
-        self._key = self.KEY
-        self._value = elem
+        self._key += 1
 
-        self._data.append((self._key, self._value))
+        if not self.is_empty():
 
-        self.decrement_key()
+            """ Acomoda las keys de modo que el ultimo elemento insertado tenga la mayor
+            prioridad, es decir el valor de clave mas bajo """
+
+            for elemento in self._data:
+                if elemento._key < self._key:
+                    elemento._key, queue._key = queue._key, elemento._key
+
+        self._data.append(queue)
     
     def __len__(self):
         return len(self._data)
@@ -39,9 +38,7 @@ class PriorityQueueStack(PriorityQueueBase):
 
         res = ""
         for elem in self._data[::-1]:
-            res += str(elem[0]) + ", " #Retorna elem[0] la key, elem[1] retorna el valor
-
-        res = res[:-2]
+            res += "(key= " + str(elem._key) + ", elem= " + str(elem._value) + "), " 
 
         return f"PriorityQueueStack({res})"
 
@@ -51,13 +48,14 @@ class PriorityQueueStack(PriorityQueueBase):
             raise Exception("La pila está vacía")
 
         elem = self._data.pop()
-        self.increment_key()
         
-        return elem[1]
+        return elem._value
         
     def top(self):
 
         if self.is_empty():
             raise Exception("No hay tope, pila vacia")
+        
+        tope = self._data[len(self._data)-1]
 
-        return self._data[::-1][0][1]
+        return tope._value
