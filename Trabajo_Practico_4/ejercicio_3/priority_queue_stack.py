@@ -39,11 +39,11 @@ class PriorityQueueStack(PriorityQueueBase):
 
         res = ""
         for elem in self._data[::-1]:
-            res += str(elem[0]) + ", "
+            res += str(elem[0]) + ", " #Retorna elem[0] la key, elem[1] retorna el valor
 
         res = res[:-2]
 
-        return f"PriorityQueueStack Keys:({res})"
+        return f"PriorityQueueStack({res})"
 
     def pop(self):
 
