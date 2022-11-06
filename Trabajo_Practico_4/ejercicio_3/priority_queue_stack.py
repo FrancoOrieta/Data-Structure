@@ -17,7 +17,7 @@ class PriorityQueueStack():
         if not self.is_empty():
 
             """ Acomoda las keys de modo que el ultimo elemento insertado tenga la mayor
-            prioridad, es decir el valor de clave mas bajo """
+            prioridad, es decir el valor de clave mas chico """
 
             for elemento in self._data:
                 if elemento._key < self._key:
