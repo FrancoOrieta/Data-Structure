@@ -40,6 +40,8 @@ class PriorityQueueStack():
         for elem in self._data[::-1]:
             res += "(key= " + str(elem._key) + ", elem= " + str(elem._value) + "), " 
 
+        res = res[:len(res)-2]
+
         return f"PriorityQueueStack({res})"
 
     def pop(self):
@@ -48,7 +50,8 @@ class PriorityQueueStack():
             raise Exception("La pila está vacía")
 
         elem = self._data.pop()
-        
+
+        self._key = 1
         return elem._value
         
     def top(self):

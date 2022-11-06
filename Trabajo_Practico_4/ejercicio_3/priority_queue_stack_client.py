@@ -2,15 +2,18 @@ from priority_queue_stack import PriorityQueueStack
 
 stack = PriorityQueueStack()
 
-def llenado(pila):
-    for i in range(1,11):
-        pila.push(i)
-
-stack = PriorityQueueStack()
-
 print("Llenando la pila".center(36, "*"))
 print("Cargando...\n")
-llenado(stack)
+stack.push(20)
+stack.push(4)
+stack.push(81)
+stack.push(55)
+stack.push(2)
+stack.push(18)
+stack.push(11)
+stack.push(40)
+stack.push(6)
+stack.push(8)
 
 print("Pila vacia?".center(26, "*"))
 print(stack.is_empty(),"\n")
